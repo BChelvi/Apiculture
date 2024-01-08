@@ -9,10 +9,10 @@ class Contamination(models.Model):
         ('IAT', "infestation des abeilles mellifères par l'acarien Tropilaelaps"),
         ('VAM', "varroose des abeilles mellifères."),
     ]
-    type = models.CharField(max_length=3, choices=CONT_TYPE)
+    type = models.CharField(max_length=4, choices=CONT_TYPE)
 
-    date_start = models.DateField(auto_now_add=True)
+    date_start = models.DateField(auto_now_add=True) #remplissage automatique  : a changer
     date_end = models.DateField(blank=True)
-    beehyve = models.ForeignKey('Hyve', on_delete=models.CASCADE, related_name='contaminations')
+    beehive = models.ForeignKey('Hive', on_delete=models.CASCADE, related_name='contaminations')
 
 

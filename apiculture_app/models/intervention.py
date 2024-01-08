@@ -10,6 +10,7 @@ class Intervention(models.Model):
         ('PH', 'Pose de hausses'),
         ('D', 'Desctruction'),
         ('MAE', "Multiplication artificielle de l'essaim"),
+        ('R',"Récolte")
     ]
     intervention_type = models.CharField(max_length=3, choices=INTERVENTION_TYPES)
     TRAITEMENT = [
@@ -18,4 +19,7 @@ class Intervention(models.Model):
         ('AF', 'antifongique'),
     ]
     traitement = models.CharField(max_length=2, choices=TRAITEMENT, blank=True)
-    beehyve = models.ForeignKey('Hyve', on_delete=models.CASCADE, related_name='interventions')
+    beehive = models.ForeignKey('Hive', on_delete=models.CASCADE, related_name='interventions')
+    
+    def __str__(self):
+        return f"{self.date} - {self.intervention_type}- {self.beehive}"

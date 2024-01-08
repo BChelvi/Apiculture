@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Ruches</title>
+</head>
+<body>
+    <h1>Liste de vos ruches</h1>
+    <ul>
+        {% for hive in hives %}
+            <li>{{ hive.name }} ({{ hive.bee_type }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
