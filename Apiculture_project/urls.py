@@ -34,6 +34,7 @@ urlpatterns = [
     path('',welcome_with_template),
     path('show_beeyard',hive_list),
     path('', include(router.urls)),
-    
+    path('api/hives/<int:pk>/get_intervention/', HiveViewSet.as_view({'put': 'get_intervention'}), name='get_intervention'),
+
 ]
 

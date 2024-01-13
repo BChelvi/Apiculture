@@ -21,10 +21,12 @@ List here the steps to follow to run the application.
 
 ## How to use
 Run the following command to launch the Django server :
+- `delete previous migrations present on the GitHubRepository`!!!
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
 - `python manage.py runserver`
 - `watch the navigator`
+- `connect as a superuser in the admin pannel`
 
 
 ## Project Status
@@ -37,24 +39,25 @@ date. L'âge de la reine, le type d'abeilles. Date et quantité des récoltes. E
 que la ruche est contaminé. Si oui depuis quelle date et par quelle 
 maladie/parasite.
 • Avoir un suivi des interventions, ajouter leur nature et les typer :
-o Suppression des cellules royales
-o Check de santé
-o Récolte
-o Distribution de sirop
-o Pose de hausses
-o Destruction
-o Multiplication artificielle de l'essaim
-o Traitement (apivar, acide oxalique, antifongique, …)
-• Possibilité de filtrer les résultats
+    o Suppression des cellules royales
+    o Check de santé
+    o Récolte
+    o Distribution de sirop
+    o Pose de hausses
+    o Destruction
+    o Multiplication artificielle de l'essaim
+    o Traitement (apivar, acide oxalique, antifongique, …)
+    • Possibilité de filtrer les résultats
+
 • Possibilité d'effectuer une action sur toutes les ruches d'un cheptel en même 
 temps (not done)
 
 ## Visitor
 
 • Les données suivantes doivent être disponibles sont en lecture seule
-o Apiculteurs (nom, prénom et un contact)
-o Cheptels
-o Ruches
+    o Apiculteurs (nom, prénom et un contact)
+    o Cheptels
+    o Ruches
 • Pagination
 • Possibilité de filtrer les résultats
 

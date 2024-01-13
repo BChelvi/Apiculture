@@ -1,14 +1,18 @@
 from rest_framework import serializers, viewsets, permissions
-from apiculture_app.models import Hive
+from apiculture_app.models import Hive, Intervention
 from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 from .contamination import ContaminationSerializer
 from .intervention import InterventionSerializer
 
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+
 class HiveSerializer(serializers.ModelSerializer):
-    contamination_extended = ContaminationSerializer(source="contaminations",read_only=True,many=True)
-    intervention_extented = InterventionSerializer(source="interventions",read_only=True,many=True)
+    contamination_extended = ContaminationSerializer(source="contaminations",many=True)
+    intervention_extented = InterventionSerializer(source="interventions",many=True)
     class Meta:
         model = Hive
         fields = ['id', 'name','bee_yard','bee_type','queen_age','contaminations','contamination_extended','interventions','intervention_extented']
@@ -43,5 +47,12 @@ class HiveViewSet(viewsets.ModelViewSet):
     filterset_class = HiveFilters
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly]
 
-    
-    
+    @action(detail=True, methods=['GET','POST','PUT']) #enlever POST ET PUT
+    def get_interventions(self, request, pk=None):
+        hive = self.get_object()
+        interventions = Intervention.objects.filter(beehive=hive)
+        serializer = InterventionSerializer(interventions, many=True)
+        print(request)
+        return Response(serializer.data)
+
+    # rajouter un edit_intervention

@@ -23,3 +23,10 @@ class Intervention(models.Model):
     
     def __str__(self):
         return f"{self.date} - {self.intervention_type}- {self.beehive}"
+    
+    def edit_intervention(self, new_date, new_intervention_type, new_traitement):
+        # Vous pouvez ajuster cette méthode selon vos besoins
+        self.date = new_date
+        self.intervention_type = new_intervention_type
+        self.traitement = new_traitement
+        self.save()

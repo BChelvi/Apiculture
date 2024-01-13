@@ -1,11 +1,16 @@
 from rest_framework import serializers, viewsets, permissions
-from apiculture_app.models import Beeyard
+from apiculture_app.models import Beeyard, Hive, Intervention
 from apiculture_app.views import HiveSerializer
+from .intervention import InterventionSerializer
 
 from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 # from rest_framework.decorators import action
+
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 
 class BeeyardSerializer(serializers.ModelSerializer):
     hives = HiveSerializer(read_only=True, many=True)
@@ -40,3 +45,13 @@ class BeeyardViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = BeeyardFilters
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly]
+
+    @action(detail=True, methods=['GET','POST','PUT']) #enlever POST ET PUT
+    def get_interventions(self, request, pk=None):
+        beeyard = self.get_object()
+        hives = Hive.objects.filter(bee_yard=beeyard)
+        interventions = Intervention.objects.filter(beehive__in=hives)
+        serializer = InterventionSerializer(interventions, many=True)
+        return Response(serializer.data)
+    
+    # rajouter l'edition sur le modèle de get_intervention : récupérer les chagements du form dans la requête, et mettre à jour les instances du modèle Interventions avec les ids correspondantes.

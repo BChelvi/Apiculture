@@ -1,10 +1,11 @@
 from rest_framework import serializers, viewsets, permissions
-from apiculture_app.models import Intervention
+from apiculture_app.models import Intervention, Hive
 
 from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission
 from .gathering import GatheringSerializer
+
 
 
 class InterventionSerializer(serializers.ModelSerializer):
@@ -34,3 +35,5 @@ class InterventionViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = InterventionFilters
     permission_classes = [permissions.IsAuthenticated]
+    
+        
