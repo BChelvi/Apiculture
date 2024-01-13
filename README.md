@@ -51,6 +51,8 @@ maladie/parasite.
 
 • Possibilité d'effectuer une action sur toutes les ruches d'un cheptel en même 
 temps (not done)
+Difficulté à comprendre comment lire le body de la requête afin  de récupérer ses données pour en faire une instance du modèle intervention sans créer de formulaire en front au préalable.
+
 
 ## Visitor
 
