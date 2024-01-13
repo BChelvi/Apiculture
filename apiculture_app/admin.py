@@ -1,10 +1,13 @@
 from django.contrib import admin
 from .models import Beetype,Beeyard,Hive,Intervention,Gathering,Contamination
+from django.contrib.auth.admin import UserAdmin
+
+
 
 # Register your models here.
 # Admin pour le modèle Hive avec des filtres avancés
 class HiveAdmin(admin.ModelAdmin):
-    list_display = ('name', 'bee_type', 'queen_age', 'bee_yard',)
+    list_display = ('name', 'bee_type', 'queen_age', 'bee_yard','status',)
     list_filter = ('bee_type',)
     search_fields = ('name', 'bee_type','bee_yard')
     
@@ -29,6 +32,8 @@ class GatheringAdmin(admin.ModelAdmin):
 # Admin pour le modèle Contamination avec des filtres avancés
 class ContaminationAdmin(admin.ModelAdmin):
     list_display = ('type', 'date_start','date_end','beehive')
+    
+
 
 
 # Enregistrement des modèles avec leurs configurations d'administration personnalisées

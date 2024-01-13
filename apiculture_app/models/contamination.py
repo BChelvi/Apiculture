@@ -15,4 +15,5 @@ class Contamination(models.Model):
     date_end = models.DateField(blank=True)
     beehive = models.ForeignKey('Hive', on_delete=models.CASCADE, related_name='contaminations')
 
-
+    def __str__(self):
+        return f"{self.type} - {self.date_start}- {self.date_end} - {self.beehive}"

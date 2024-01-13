@@ -1,14 +1,4 @@
-# Django lesson
-
-## Getting started
-This is a correction example of the Django lesson you have taken.
-
-Clone it, replace with your data...
-
-If you struggle to edit this file, the format **.md** is called MarkDown, read the doc :)
-
-This file is displayed on your github project page, it needs to contain a short description of your application and the steps to use it. **You have to edit it**.
-
+# TP Django Apiculture Benjamin Chelvi-Sandin
 
 ## Dependencies
 For this project, the following file has to list the python dependencies of your project.
@@ -34,9 +24,37 @@ Run the following command to launch the Django server :
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
 - `python manage.py runserver`
+- `watch the navigator`
 
 
+## Project Status
 
-***
-## Troubleshooting
-You can list here, if needed, the common issues that the users of your app can encounter.
+## Beekeeper
+• Lister leurs différents cheptels
+• Par cheptel, lister les ruches
+• Par ruche, est-ce qu'elle est en activité, en attente ou détruite, depuis quelle 
+date. L'âge de la reine, le type d'abeilles. Date et quantité des récoltes. Est-ce 
+que la ruche est contaminé. Si oui depuis quelle date et par quelle 
+maladie/parasite.
+• Avoir un suivi des interventions, ajouter leur nature et les typer :
+o Suppression des cellules royales
+o Check de santé
+o Récolte
+o Distribution de sirop
+o Pose de hausses
+o Destruction
+o Multiplication artificielle de l'essaim
+o Traitement (apivar, acide oxalique, antifongique, …)
+• Possibilité de filtrer les résultats
+• Possibilité d'effectuer une action sur toutes les ruches d'un cheptel en même 
+temps (not done)
+
+## Visitor
+
+• Les données suivantes doivent être disponibles sont en lecture seule
+o Apiculteurs (nom, prénom et un contact)
+o Cheptels
+o Ruches
+• Pagination
+• Possibilité de filtrer les résultats
+

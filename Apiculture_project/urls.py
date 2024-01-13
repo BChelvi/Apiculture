@@ -23,6 +23,11 @@ router = routers.DefaultRouter()
 
 router.register(r'hives', HiveViewSet)
 router.register(r'beeyards', BeeyardViewSet)
+router.register(r'apiculteurs', UserViewSet) #endpoint vers le serialiseurs réduit de users (email, nom, prénom)
+router.register(r'interventions', InterventionViewSet)
+router.register(r'contaminations', ContaminationViewSet)
+router.register(r'gatherings', GatheringViewSet)
+router.register(r'beetypes', BeetypeViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
